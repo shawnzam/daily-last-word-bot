@@ -46,9 +46,18 @@ function breakDownString(str, len){
 
 function go(){
 	var tweetAsArray = breakDownString(getLastWord(), 137);
-	for (var i = 0; i < tweetAsArray.length; i++) {
+	for (var i = tweetAsArray.length - 1; i >= 0; i--) {
 		tweetLastWords(tweetAsArray[i]);
 	};
+}
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
 }
 // setInterval(go(), 60000 * 60 * 24);
 go();
