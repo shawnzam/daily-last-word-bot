@@ -1,0 +1,10 @@
+{
+  "name"         : "last-word_scrpae",
+  "version"      : "0.0.1",
+  "description"  : "Scrape le web.",
+  "main"         : "app.js",
+  "author"       : "Shawn",
+  "dependencies" : {
+    "twit"    : "latest"
+  }
+}
