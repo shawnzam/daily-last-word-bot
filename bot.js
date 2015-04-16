@@ -4,10 +4,8 @@ var Twit = require('twit');
 // We need to include our configuration file
 var T = new Twit(require('./config.js'));
 
-// This is the URL of a search for the latest tweets on the '#mediaarts' hashtag.
 var lastwords = require('./lastwords.json');
 
-// This function finds the latest tweet with the #mediaarts hashtag, and retweets it.
 function tweetLastWords(tweet) {
 	T.post('statuses/update', { status: tweet }, function(err, data, response) {
 		console.log(err);
@@ -34,7 +32,6 @@ function breakDownString(str, len){
 	}
 	while(str.length >len){
 		var tmpString = str.substring(0,len);
-		// console.log(tmpString.lastIndexOf(' '));
 		if(tmpString.lastIndexOf(' ') <= 0){
 			returnArray.push(str.substring(0,len) + "...");
 			str = str.substring(len);
@@ -49,14 +46,11 @@ function breakDownString(str, len){
 
 function go(){
 	var tweetAsArray = breakDownString(getLastWord(), 137);
-	// console.log(tweetAsArray);
 	for (var i = 0; i < tweetAsArray.length; i++) {
-		// console.log(tweetAsArray[i])
 		tweetLastWords(tweetAsArray[i]);
 	};
 }
-
-// setInterval(tweetLastWords, 10000);
+// setInterval(go(), 60000 * 60 * 24);
 go();
 
 
