@@ -25,7 +25,7 @@ function breakDownString(str, len){
 	if(str.length <= len){
 		return [str]
 	}
-	while(str.length >len){
+	while(str.length > len){
 		var tmpString = str.substring(0,len);
 		if(tmpString.lastIndexOf(' ') <= 0){
 			returnArray.push(str.substring(0,len) + "...");
